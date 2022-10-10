@@ -11,14 +11,15 @@ import { initialState, reducer } from './reducer/UseReducer';
 
 export const userContext = createContext();
 const Routing = () => {
-  return(<Routes>
-    <Route exact path="/" element={<Home/>}/>
-    <Route path="/aboutus" element={<AboutUs/>}/>
-    <Route path="/register" element={<Register/>}/>
-    <Route path="/signin" element={<Login/>}/>
-    <Route path="/fav" element={<Favourite/>}/>
-    <Route path="/logout" element={<Logout/>}/>
-  </Routes>
+  return(
+    <Routes>
+      <Route exact path="/" element={<Home/>}/>
+      <Route path="/aboutus" element={<AboutUs/>}/>
+      <Route path="/register" element={<Register/>}/>
+      <Route path="/signin" element={<Login/>}/>
+      <Route path="/fav" element={<Favourite/>}/>
+      <Route path="/logout" element={<Logout/>}/>
+    </Routes>
   )
 
 }

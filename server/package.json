@@ -11,12 +11,12 @@
   },
   "name": "cfo",
   "version": "1.0.0",
-  "description": "Code For Odisha Project by White Hats",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "White Hats",
   "license": "ISC"

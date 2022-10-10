@@ -1,16 +1,9 @@
 import React,{ useState } from 'react';
-import {data_of} from '../API/api';
 
 
 const Home = () =>{
-  const [data,setData] = useState(data_of);
     return(
        <>
-       {
-        data.map((ele) => {
-          return ele.id;
-        })
-       }
         <div className="p-5 bg-primary text-white text-center">
             <h1>My First Bootstrap 5 Page</h1>
         </div>

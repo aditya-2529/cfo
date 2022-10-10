@@ -16,7 +16,7 @@ const Logout= () => {
             credentials: "include"
         }).then((res)=>{
             dispatch({type:"USER",payload:false});
-            Nav('/signin',{replace:true});
+            Nav('/signin');
             if(!res.status===200){
                 throw new Error(res.error);
             }
@@ -25,8 +25,7 @@ const Logout= () => {
         })
     })
     return(
-        <>
-        </>
+        Nav('/')
     )
 }
 
