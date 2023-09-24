@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Favourite = () => {
     const Nav = useNavigate();
+    const [user,userData] = useState([]);
     const callFav = async () => {
         try {
             const res = await fetch('/fav',{
@@ -14,8 +15,7 @@ const Favourite = () => {
                 credentials:"include"
             });
             const data = await res.json();
-            console.log(data);
-            
+            userData(data);
             if(!res.status===400){
                 throw new Error(res.error);
             }
@@ -28,8 +28,9 @@ const Favourite = () => {
     useEffect(() => {
         callFav();
     },[])
+
     return(
-        <></>
+        <>{user.name}</>
     )
 }
 

@@ -16,12 +16,16 @@ router.use(cookie());
 // app.use(express.static(path.join(__dirname,"./views")));
 // app.set("view engine","hbs");
 
-router.get('/logout', auth, (req,res) =>{
-    res.clearCookie('jwtoken',{path:'/'});
-    res.status(200);
+router.get('/logout',auth, (req,res) =>{ 
+    try{ 
+        res.clearCookie('jwtoken',{path:'/'});
+    res.status(200).send("Success");}
+    catch(e){
+        console.log(`error in logout ${e}`);
+    }
 })
 
-router.get('/fav', auth, (req,res) =>{
+router.get('/fav',auth, (req,res) =>{
     res.send(req.rUser);
 })
 
@@ -49,8 +53,8 @@ router.post('/register', async (req,res) => {
 })
 
 router.post('/signin',async (req,res) => {
+    let token;
     try {
-        let token;
         const {username,password} = req.body;
         if(!username || !password){
             return res.status(400).json({error:"Please fill the data."});

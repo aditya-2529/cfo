@@ -1,10 +1,11 @@
-import React,{useContext} from 'react';
+import React,{useContext,useEffect} from 'react';
 import {userContext} from '../App';
 import {NavLink} from 'react-router-dom';
+import { dataa } from './Login';
 
 const Navbar = () => {
     const {state,dispatch} = useContext(userContext);
-    const RenderMenu = () => {if(state){
+    const RenderMenu = () => {if(dataa){
             return(
                 <>
                     <li className="nav-item dropdown">

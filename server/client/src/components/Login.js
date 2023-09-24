@@ -25,7 +25,9 @@ const Login = () => {
         }else if(res.status===201){
             dispatch({type:"USER",payload:true});
             window.alert("Logged in Successfully");
+            window.localStorage.setItem('MY_APP_STATE', JSON.stringify(true));
             history("/");
+            window.location.reload()
         }else{
           window.alert("Invalid");
         }
@@ -58,5 +60,5 @@ const Login = () => {
         </>
     );
 }
-
+export const dataa = window.localStorage.getItem('MY_APP_STATE');
 export default Login;

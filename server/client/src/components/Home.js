@@ -1,4 +1,6 @@
-import React,{ useState } from 'react';
+import React,{ useContext,useState } from 'react';
+import {userContext} from '../App';
+
 
 
 const Home = () =>{

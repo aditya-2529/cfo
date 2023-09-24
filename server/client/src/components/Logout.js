@@ -5,27 +5,34 @@ import { useNavigate } from "react-router-dom";
 const Logout= () => {
     const {state,dispatch} = useContext(userContext);
     const Nav = useNavigate();
-
-    useEffect(()=>{
-        fetch('/logout',{
-            method:"GET",
-            headers:{
-                Accept:"application/json",
-                "Content-Type":"application/json"
-            },
-            credentials: "include"
-        }).then((res)=>{
+    const callFav = async () => {
+        try {
+            const res = await fetch('/logout',{
+                method:"GET",
+                headers:{
+                    Accept:"application/json",
+                    "Content-Type":"application/json"
+                },
+                credentials:"include"
+            });
+            console.log(res.cookie)
             dispatch({type:"USER",payload:false});
-            Nav('/signin');
+            window.localStorage.removeItem('MY_APP_STATE');
+            Nav('/signin')
+            window.location.reload();
             if(!res.status===200){
                 throw new Error(res.error);
             }
-        }).catch((error) => {
-            console.log(error);
-        })
-    })
+        } catch (error) {
+                console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        callFav();
+    },[])
     return(
-        Nav('/')
+       <>LogOut</>
     )
 }
 
