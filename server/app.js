@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+import {cors} from cors;
 const dotenv = require("dotenv");
 
 dotenv.config({path:"./config.env"});
@@ -7,6 +8,11 @@ dotenv.config({path:"./config.env"});
 const port = process.env.PORT || 5000;
 
 app.use(require("./route/auth"));
+app.use(cors(
+    {
+        origin:['client-jb55.onrender.com']
+    }
+))
 if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging'){
     app.use(express.static('client/build'));
     const path = require("path");

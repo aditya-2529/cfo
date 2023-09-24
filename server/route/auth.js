@@ -12,23 +12,19 @@ const cookie = require('cookie-parser');
 require("../db/conn");
 const Users = require("../db/conn");
 router.use(cookie());
+const path = require('path')
 
 // app.use(express.static(path.join(__dirname,"./views")));
 // app.set("view engine","hbs");
-
+__dirname = __dirname.slice(0,__dirname.length-5)
 router.get('/logout',auth, (req,res) =>{ 
-    try{ 
-        res.clearCookie('jwtoken',{path:'/'});
-    res.status(200).send("Success");}
-    catch(e){
-        console.log(`error in logout ${e}`);
-    }
+    res.clearCookie('jwtoken',{path:'/'});
+    res.status(200).send();
 })
 
 router.get('/fav',auth, (req,res) =>{
     res.send(req.rUser);
 })
-
 router.post('/register', async (req,res) => {
     const {username,name,email,password,confirmPassword} = req.body;
 
