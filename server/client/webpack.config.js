@@ -1,7 +1,7 @@
 module.exports = {
     devServer: {
-      allowedHosts: [
-        'https://shopping-a16v.onrender.com/'
-      ],
+        compress: true,
+        host:'0.0.0.0',
+        disabledHostCheck:true
     },
   };
