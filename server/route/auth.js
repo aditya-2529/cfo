@@ -9,14 +9,13 @@ router.use(bodyparser.urlencoded({ extended: true }));
 const auth = require('../middleware/authenticate');
 const cookie = require('cookie-parser');
 
-require("../db/conn");
+// require("../db/conn");
 const Users = require("../db/conn");
+const web_data = require('../db/web_data');
 router.use(cookie());
-const path = require('path')
 
 // app.use(express.static(path.join(__dirname,"./views")));
 // app.set("view engine","hbs");
-__dirname = __dirname.slice(0,__dirname.length-5)
 router.get('/logout',auth, (req,res) =>{ 
     res.clearCookie('jwtoken',{path:'/'});
     res.status(200).send();
@@ -74,6 +73,27 @@ router.post('/signin',async (req,res) => {
     } catch (error) {
         console.log(error);
     }
+})
+
+// router.post('/api/web_data',async (req,res)=>{
+//     try{
+//         const {imgLink,name,desc,heading} = req.body;
+//         if(!imgLink||!name||!desc||!heading){
+//             return res.status(400).json({error:"Please fill the data."});
+//         }
+//         const webData = new web_data({imgLink,name,desc,heading});
+//         this.headings = 
+//         await webData.save();
+//         res.status(201).json({message:"Registered successfully"})
+//     }
+//     catch(e){
+//         console.log(e);
+//     }
+
+// })
+
+router.get('/api/web_data',async (req,res)=>{
+    res.status(200).send(web_data);
 })
 
 module.exports = router;

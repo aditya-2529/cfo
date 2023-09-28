@@ -8,6 +8,7 @@ import Register from './components/Register';
 import Favourite from './components/Favourite';
 import Logout from './components/Logout';
 import { initialState, reducer } from './reducer/UseReducer';
+import Footor from './components/Footor';
 
 export const userContext = createContext();
 const Routing = () => {
@@ -31,6 +32,7 @@ function App() {
     <userContext.Provider value={{state,dispatch}}>
     <Navbar/>
     <Routing/>
+    <Footor/>
     </userContext.Provider>
       </>
   );
