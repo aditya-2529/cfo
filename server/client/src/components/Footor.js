@@ -15,8 +15,8 @@ const Footor = () => {
                   <h3 className="useful_text">Menu</h3>
                   <div className="footer_menu">
                      <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/aboutus">About Us</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="contact.html">Contact Us</a></li>

@@ -38,7 +38,7 @@ const AboutUs = () => {
                   </div>
                </div>
                <div className="col-md-6">
-                  <div className="about_img"><img src={lb.imgAbout.img}/></div>
+                  <div className="about_img"><img src={lb.imgAbout}/></div>
                </div>
             </div>
          </div>

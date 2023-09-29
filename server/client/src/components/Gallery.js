@@ -26,7 +26,7 @@ const Gallery = () => {
     },[])
     return(
         <>
-        {gall.map((la)=>{return(<div className="gallery_section layout_padding">
+        {gall.map((la)=>(<div className="gallery_section layout_padding">
          <div className="container">
             <div className="row">
                <div className="col-sm-12">
@@ -36,21 +36,21 @@ const Gallery = () => {
             </div>
             <div className="">
                <div className="gallery_section_2">
-                  <div className="row">
-                     <div className="col-md-4">
+               <div className="row">
+               {la.img.map((abc)=>(<div className="col-md-4">
                         <div className="container_main">
-                           <img src={la.img.img1} alt="Avatar" className="image"/>
+                           <img src={abc.img} alt="Avatar" className="image"/>
                            <div className="overlay">
                               <div className="text"><a href="#"><i className="fa fa-search" aria-hidden="true"></i></a></div>
                            </div>
-                        </div>
-                     </div>
+                        </div><br></br>
+                     </div>))} 
                   </div>
                </div>
             </div>
             <div className="seemore_bt"><a href="#">See More</a></div>
          </div>
-      </div>)})}
+      </div>))}
         </>
     )
 

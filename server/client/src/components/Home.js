@@ -34,7 +34,7 @@ const Home = () =>{
     return(
        <>
         {
-       lis.map((l)=>{return(<div className="banner_section layout_padding" style={{"backgroundImage":"url("+l.imgMain.img+")"}}>
+       lis.map((l)=>{return(<div className="banner_section layout_padding" style={{"backgroundImage":"url("+l.imgMain+")"}}>
          <div className="container">
             <div id="main_slider" className="carousel slide" data-ride="carousel">
                <div className="carousel-inner">
